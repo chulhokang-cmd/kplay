@@ -44,3 +44,32 @@ All game content lives in `lib/data.ts`:
 - `WORDS` — vocabulary used by Quiz and Fall/Match games (fields: `kr`, `rom`, `jp`, `song`, `ctx`)
 - `LYRICS` — fill-in-the-blank items for Lyric game (fields: `song`, `line` with `<BLANK>`, `blank`, `jp`, `opts`)
 - `shuffle()` — Fisher-Yates utility used by game pages to randomize options
+
+## 프로젝트 개요
+- 서비스명: Seollem
+- 목적: 문화를 통해서 한국어를 공부하고 싶은 일본의 젊은 유저들을 위한 서비스 
+- 운영사: 원티드랩 (WantedLab)
+
+## 타겟 고객
+- 20-30대 한국어를 공부하고 싶은 초보유저
+- 한국어가 비지니스 레벨이상인 유저
+
+## 핵심 서비스
+1. 초보유저을 위해서 게임처럼 한국문화를 한국어로 배우는 기능
+2. 유창한 유저를 위해서는 한국어를 사용해서 일할수 있는 기업을 소개
+
+## 디자인 원칙
+- 캐주얼 게임 느낌, 학습 느낌 NO
+- 로그인/회원가입 없음
+- 다크 테마 유지 (배경색 #0e0b1a)
+- 폰트: Fredoka One (타이틀), Noto Sans KR (한국어), Noto Sans JP (일본어)
+
+## 배포
+- GitHub: https://github.com/chulhokang-cmd/kplay
+- Vercel: https://kplay-peeu.vercel.app
+- git push하면 Vercel 자동 배포
+
+## 주의사항
+- `lib/gameStore.tsx` 확장자는 tsx (jsx 포함이라 ts 아님)
+- `"use client"` 는 게임 컴포넌트에 필수
+- 새 페이지 만들 때 반드시 `"use client"` 추가

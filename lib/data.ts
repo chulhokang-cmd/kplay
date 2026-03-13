@@ -81,3 +81,70 @@ export const LYRICS: LyricItem[] = [
 export function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);
 }
+
+export interface Job {
+  company: string;
+  position: string;
+  level: string;
+  category: string;
+  location: string;
+  desc: string;
+  tags: string[];
+}
+
+export const JOBS: Job[] = [
+  {
+    company: "Kakao Japan",
+    position: "グローバルマーケティングマネージャー",
+    level: "ビジネス以上",
+    category: "マーケティング",
+    location: "東京・リモート可",
+    desc: "Kakaoのグローバルサービス展開に向けた日本市場のマーケティング戦略を担当。韓国本社との連携が必須です。",
+    tags: ["SNSマーケ", "韓国語必須", "週3リモート"],
+  },
+  {
+    company: "Naver Japan",
+    position: "フロントエンドエンジニア",
+    level: "日常会話以上",
+    category: "IT",
+    location: "東京",
+    desc: "LINE・NAVERのWebサービス開発。韓国チームとのコードレビューや週次定例MTGがあります。",
+    tags: ["React", "TypeScript", "韓国語歓迎"],
+  },
+  {
+    company: "CJ ENM Japan",
+    position: "コンテンツプランナー",
+    level: "ビジネス以上",
+    category: "コンテンツ",
+    location: "東京",
+    desc: "K-POPアーティストの日本向けコンテンツ企画・制作を担当。韓国本社との折衝業務あり。",
+    tags: ["K-POP", "映像制作", "韓国語必須"],
+  },
+  {
+    company: "Krafton Japan",
+    position: "カスタマーサポートリード",
+    level: "日常会話以上",
+    category: "カスタマーサポート",
+    location: "大阪・リモート可",
+    desc: "PUBGなどのゲームタイトルにおける日本ユーザーサポートの管理。韓国開発チームとの連絡調整を担います。",
+    tags: ["ゲーム", "チームリード", "韓国語歓迎"],
+  },
+  {
+    company: "WantedLab Japan",
+    position: "ITリクルーティングコンサルタント",
+    level: "ビジネス以上",
+    category: "営業",
+    location: "東京・リモート可",
+    desc: "韓国IT企業の日本採用を支援するコンサルタント。求職者と企業双方への提案営業が中心業務です。",
+    tags: ["HR Tech", "採用支援", "韓国語必須"],
+  },
+  {
+    company: "Coupang Japan",
+    position: "オペレーションスペシャリスト",
+    level: "初級以上",
+    category: "IT",
+    location: "東京",
+    desc: "Coupangの日本展開に向けた物流・運営オペレーションの整備。基礎的な韓国語でのドキュメント読解が求められます。",
+    tags: ["物流", "EC", "韓国語初級OK"],
+  },
+];
