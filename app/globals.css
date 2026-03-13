@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Fredoka+One&display=swap');
+
+:root {
+  --bg:      #0e0b1a;
+  --surface: #1a1630;
+  --card:    #221e3a;
+  --border:  #35306a;
+  --pink:    #ff4d8d;
+  --pink2:   #ff85b3;
+  --yellow:  #ffe566;
+  --cyan:    #3de8d0;
+  --purple:  #b06aff;
+  --correct: #3de88a;
+  --wrong:   #ff5555;
+  --muted:   #7a748a;
+  --white:   #f0eeff;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Custom utilities */
+@layer utilities {
+  .font-fredoka   { font-family: 'Fredoka One', cursive; }
+  .font-yomogi    { font-family: 'Yomogi', cursive; }
+  .font-noto-kr   { font-family: 'Noto Sans KR', sans-serif; }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ff4d8d 0%, #ffe566 50%, #3de8d0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-yp {
+    background: linear-gradient(135deg, #ffe566, #ff4d8d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-base {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 18px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(.34,1.56,.64,1);
+    box-shadow: 0 8px 24px rgba(255,77,141,0.35);
+    width: 100%;
+    letter-spacing: 1px;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,77,141,0.5); }
+  .btn-primary:active { transform: scale(0.97); }
+
+  .btn-back {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    width: 38px; height: 38px;
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .btn-back:hover { background: var(--border); }
+}
+
+/* Animations */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(1.4); }
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%     { transform: translateX(-8px); }
+  40%     { transform: translateX(8px); }
+  60%     { transform: translateX(-6px); }
+  80%     { transform: translateX(6px); }
+}
+@keyframes correctPulse {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.04); }
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0.3; }
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+@keyframes bgFloat {
+  0%   { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  10%  { opacity: 0.12; }
+  90%  { opacity: 0.12; }
+  100% { transform: translateY(-80px) scale(1.2); opacity: 0; }
+}
+
+.animate-pop-in    { animation: popIn 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+.animate-shake     { animation: shake 0.4s ease; }
+.animate-correct   { animation: correctPulse 0.4s ease; }
+.animate-blink     { animation: blink 1.5s ease-in-out infinite; }
+.animate-float-bg  { animation: bgFloat linear infinite; }
+.animate-confetti  { animation: confettiFall linear forwards; }
+.effect-text       { animation: floatUp 0.9s ease forwards; }
