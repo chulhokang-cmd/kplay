@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useState, useCallback } from "react";
 
 export interface EffectItem {
   id: number;
@@ -30,23 +30,17 @@ export default function EffectLayer({ effects }: Props) {
 }
 
 let _id = 0;
-export function makeEffect(
-  text: string,
-  color: string,
-  x: number,
-  y: number,
-): EffectItem {
+export function makeEffect(text: string, color: string, x: number, y: number): EffectItem {
   return { id: _id++, text, color, x, y };
 }
 
 export function useEffects() {
-  const { useState, useCallback } = require("react");
   const [effects, setEffects] = useState<EffectItem[]>([]);
 
   const spawn = useCallback((text: string, color: string, x: number, y: number) => {
     const ef = makeEffect(text, color, x, y);
-    setEffects((prev: EffectItem[]) => [...prev, ef]);
-    setTimeout(() => setEffects((prev: EffectItem[]) => prev.filter((e) => e.id !== ef.id)), 950);
+    setEffects((prev) => [...prev, ef]);
+    setTimeout(() => setEffects((prev) => prev.filter((e) => e.id !== ef.id)), 950);
   }, []);
 
   return { effects, spawn };
